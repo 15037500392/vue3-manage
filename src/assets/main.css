@@ -1,0 +1,11 @@
+.flex-box-level{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.flex-box-vertical{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

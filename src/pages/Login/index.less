@@ -1,0 +1,48 @@
+.login-box{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+}
+.left-container{
+    width: 100%;
+    .welcome-tips{
+        font-size: 48px;
+    }
+}
+.right-container{
+    width: 600px;
+    margin-left: auto;
+    .login-text{
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .login-tip{
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .login-tip:before{
+        display: inline-block;
+        content: "";
+        width: 50px;
+        height: 1px;
+        position: absolute;
+        margin-left: -55px;
+        margin-top:10px;
+        background: #d4d4d4;
+    }
+    .login-tip:after{
+        display: inline-block;
+        content: "";
+        width: 50px;
+        height: 1px;
+        position: absolute;
+        margin-right: -50px;
+        margin-left: 5px;
+        margin-top:10px;
+        background: #d4d4d4;
+    }
+    .login-btn{
+        width: 300px;
+    }
+}
