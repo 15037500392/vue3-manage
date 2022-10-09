@@ -11,3 +11,7 @@ export function Logout(data){
 export function GetUserInfo(data){
     return axios.post('/admin/getinfo',data)
 }
+
+export function EditPassword(data){
+    return axios.post('/admin/updatepassword',data)
+}

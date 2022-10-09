@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/pages/index.vue";
 import NotFound from "@/pages/404.vue";
 import Login from "@/pages/Login/index.vue";
+import Admin from "@/layouts/admin.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,10 +11,15 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: Home,
-      meta: {
-        title: "后台首页",
-      },
+      component: Admin,
+      children:[{
+        path: "/",
+        name: "home",
+        component: Home,
+        meta: {
+          title: "后台首页",
+        },
+      }]
     },
     {
       path: "/login",

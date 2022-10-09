@@ -10,6 +10,7 @@
     "test:e2e:ci": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'"
   },
   "dependencies": {
+    "@vueuse/core": "^9.3.0",
     "@vueuse/integrations": "^9.3.0",
     "axios": "^1.0.0",
     "element-plus": "^2.2.17",
