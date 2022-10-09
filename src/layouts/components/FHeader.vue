@@ -129,7 +129,6 @@ const ruleFormRef = ref(null);
 const loading = ref(false)
 // 修改密码
 const editPassword = async (formEl) => {
-  console.log(formEl, "formEl");
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {
@@ -162,9 +161,8 @@ const handleCommand = (data) => {
   }
 };
 
-const handleRefresh = () => {};
-const handleClose = () => {
-  drawerVisible.value = false;
+const handleRefresh = () => {
+  location.reload()
 };
 </script>
 
