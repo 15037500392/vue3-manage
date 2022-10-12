@@ -1,4 +1,4 @@
-import router from '@/router'
+import {router,addRoutes} from '@/router'
 import { getToken } from '@/composables/auth.js'
 import { toast,showFullLoading,hideFullLoading } from '@/composables/util.js'
 import { useUserStore } from '@/store/user.js'
@@ -22,15 +22,20 @@ router.beforeEach((to,from,next) => {
         return next({path:from.path ? from.path : ''})
     }
 
+    let hasNewRoute = false
     if(token){
         const userStore = useUserStore()
-        userStore.setUserInfo() 
-        hideFullLoading()
+        userStore.setUserInfo().then(res =>{
+            hasNewRoute = addRoutes(res.menus)
+            hideFullLoading()
+        }) 
+       
     }
 
     const title = `${to.meta.title ? to.meta.title : ''}--山谣的vue练习项目`
     document.title = title
-    next()
+    console.log(hasNewRoute,to,'to')
+    hasNewRoute ? next(to.fullPath) : next()
 })
 
 router.afterEach((to, from) => {

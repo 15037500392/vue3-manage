@@ -6,11 +6,18 @@ export const useUserStore = defineStore("user", {
       userInfo: {},
     };
   },
+  getters: {
+    menus: (state) => state.userInfo.menus,
+  },
   actions: {
     setUserInfo() {
-      GetUserInfo().then((res) => {
-        this.userInfo = Object.assign({}, res);
-      });
+      return new Promise((resolve,reject) => {
+        GetUserInfo().then((res) => {
+          this.userInfo = Object.assign({}, res);
+          resolve(res)
+        });
+      }).catch(err => reject(err))
+      
     },
   },
 });

@@ -4,7 +4,8 @@
       <el-icon class="mr-1"><Promotion /></el-icon>
       山谣山谣
     </span>
-    <el-icon class="icon-btn"><fold /></el-icon>
+    <el-icon class="icon-btn" v-if="isCollapse" @click="handleClose"><Expand /></el-icon>
+    <el-icon class="icon-btn" v-else @click="handleOpen"><fold /></el-icon>
     <el-tooltip
       class="box-item"
       effect="dark"
@@ -124,12 +125,22 @@ const handleCommand = (data) => {
 const handleRefresh = () => {
   location.reload();
 };
+const props = defineProps({
+        isCollapse:{
+            type:Boolean,
+            default: false
+        }
+    })
+const emit = defineEmits(["open","close"])
+const handleOpen = () => emit("open")
+const handleClose= () => emit("close")
 </script>
 
 <style lang="less" scoped>
 .f-header {
   @apply flex items-center bg-indigo-700 text-light-50 fixed top-0 left-0 right-0;
   height: 64px;
+  z-index: 1;
 }
 
 .logo {
