@@ -68,7 +68,6 @@ export function addRoutes(menus) {
       let item = asyncRouter.find((o) => {
         return o.path == e.frontpath
       });
-      console.log(item,'item')
       if (item && !router.hasRoute(item.path)) {
         hasNewRoute = true
         router.addRoute("admin",item)

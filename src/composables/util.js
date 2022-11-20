@@ -11,7 +11,6 @@ export function toast(message, type){
 }
 
 export function showModal(content="提示内容", type="warning", title=""){
-  console.log('e,;dd')
   return ElMessageBox.confirm(
     content,
     title,

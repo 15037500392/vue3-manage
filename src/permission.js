@@ -5,8 +5,8 @@ import { useUserStore } from '@/store/user.js'
 
 
 // 全局前置守卫
-
-router.beforeEach((to,from,next) => {
+let hasGetInfo = false
+router.beforeEach(async (to,from,next) => {
     showFullLoading()
     const token = getToken()
 
@@ -23,18 +23,17 @@ router.beforeEach((to,from,next) => {
     }
 
     let hasNewRoute = false
-    if(token){
+    if(token && !hasGetInfo){
         const userStore = useUserStore()
-        userStore.setUserInfo().then(res =>{
+        await userStore.setUserInfo().then(res =>{
             hasNewRoute = addRoutes(res.menus)
             hideFullLoading()
         }) 
+        hasGetInfo = true
        
     }
-
     const title = `${to.meta.title ? to.meta.title : ''}--山谣的vue练习项目`
     document.title = title
-    console.log(hasNewRoute,to,'to')
     hasNewRoute ? next(to.fullPath) : next()
 })
 

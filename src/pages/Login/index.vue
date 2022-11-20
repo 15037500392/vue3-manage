@@ -72,7 +72,6 @@ const loading = ref(false);
 const router = useRouter();
 // 登录
 const onSubmit = async (formEl) => {
-    console.log(formEl,'formRef')
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {

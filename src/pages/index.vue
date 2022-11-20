@@ -7,8 +7,6 @@
     import { useUserStore } from '@/store/user.js'
 
     const userStore = useUserStore()
-    
-    console.log(userStore,'userStore')
 </script>
 
 <style lang="scss" scoped>

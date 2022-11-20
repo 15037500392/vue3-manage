@@ -61,7 +61,6 @@ const router = useRouter()
 const defaultActive  = ref(route.push)
 
    const  handleSelect = (data) =>{
-        console.log(data,'dd')
         router.push(data)
    }
     const props = defineProps({

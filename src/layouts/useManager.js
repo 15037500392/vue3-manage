@@ -59,14 +59,12 @@ export function useLogout() {
   const logout = () => {
     showModal("是否要退出登录?")
       .then((res) => {
-        console.log(res, "dd");
         Logout().finally(() => {
           removeToken();
           router.push("/login");
         });
       })
       .catch((res) => {
-        console.log(res, "ddd");
       });
   };
   return {
